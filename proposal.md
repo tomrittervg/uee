@@ -6,31 +6,31 @@ Glossary
 Throughout this document, we try to use the following phrases with 
 specific meanings.
 
-User: the end user and/or the end user's MUA
+* User: the end user and/or the end user's MUA
 
-Email provider: a service provider that operates a DNS domain or 
+* Email provider: a service provider that operates a DNS domain or 
     subdomain, the key directory, and serves users
 
-Sender: the application or service that encrypts and then sends 
+* Sender: the application or service that encrypts and then sends 
     an email. This may be a provider or a user
 
-Recipient: the application or service that receives an email and 
+* Recipient: the application or service that receives an email and 
     decrypts it. Again, the provider or user
 
-Sending user: the user sending an email
+* Sending user: the user sending an email
 
-Receiving user: the user receiving an email
+* Receiving user: the user receiving an email
 
-Key Directory: the service operated by an email provider to allow 
+* Key Directory: the service operated by an email provider to allow 
     senders to retrieve keys for the provider's users 
    (we avoid "keyserver" to eliminate confusion with OpenPGP/HKP)
 
-Trust Root: a root of trust that keys may chain to for an 
+* Trust Root: a root of trust that keys may chain to for an 
     assurance of authenticity. This root may be a provider-operated
     root or a single/set of externally operated Certificate 
     Authorities
 
-Key Authenticity: for a given e-mail address, whether the sender 
+* Key Authenticity: for a given e-mail address, whether the sender 
     believes that the key belongs to the e-mail address.
 
 
@@ -777,7 +777,7 @@ successful, the sender MUST NOT encrypt the message and MUST include a
 header in the message to inform the receiver of a successful UEE
 operation.  This header is defined as:
 
-  UEE: status=success; keyid=00112233445566778899AABBCC
+`UEE: status=success; keyid=00112233445566778899AABBCC`
 
 This header is also present in Enforcement mode, and has the same
 parameters. Two parameters are defined initially.
@@ -855,6 +855,7 @@ XXX - This will need way more work
 
 The failure report should be of the following format:
 
+```
 {
       'datetime' : string containing ISO-whatever date and time of error
     , 'provider-policy' : //The sender's view of the information provided via DNS
@@ -876,7 +877,7 @@ The failure report should be of the following format:
             //provider specific additional data they wish to include
         } ]
 }
-
+```
 
 
 
@@ -1040,12 +1041,12 @@ delivered anyway, as MX+A/AAAA records could not be retrieved.
 
 If a sender queries the recipient's provider to query if they support
 UEE or not, and the DNS answers for MX+A/AAAA records but not the UEE
-information, this is a strange case as a [NO RECORD] (XXX) should be
+information, this is a strange case as a NO RECORD (XXX) should be
 returned instead.  In this case the sender MAY fail open and send
 messages unencrypted.  This is an exceptionally dangerous scenario;
 however, as an attacker can block these plaintext DNS requests.  
 
-DNSSEC SHOULD (MUST? XXX) be used to provide authenticated [NO RECORD]
+DNSSEC SHOULD (MUST? XXX) be used to provide authenticated NO RECORD
 (XXX) responses. For resolvers that do not support DNSSEC, a provider 
 SHOULD set a long TTL on the UEE record (we suggest 1 month (XXX)) 
 and senders SHOULD cache this information locally - this pins UEE 
@@ -1125,3 +1126,4 @@ common ones like "Legal Footer", "Mailing List Footer", and "Provider Footer"
 
 ### Character Sets
 
+XXX

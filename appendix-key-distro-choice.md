@@ -1,4 +1,3 @@
-=====================================================================
 Key Distribution: DNS or ...?
 =====================================================================
 
@@ -22,11 +21,11 @@ When verifying a signature, the MUA would look up
 Because we want to be able to support publication of multiple
 concurrent signing keys (to allow for smooth key transitions)
 older/deprecated keys can also be fetched at:
- * 1.sign.alice._uee.example.com
- * 2.sign.alice._uee.example.com
+ * `1.sign.alice._uee.example.com`
+ * `2.sign.alice._uee.example.com`
  * ... (decimal prefixes)
 
-Once N.sign.alice._uee.example.com returns NXDOMAIN, there are no 
+Once `N.sign.alice._uee.example.com` returns NXDOMAIN, there are no 
 more keys published.  
 
 DNS has a well understood deployment model and a well understood
